@@ -1,5 +1,39 @@
 # Pepsi-Coke-LogoDetection
 
+## Objective
+This project sets up an ML pipeline that:
+1. Takes a video file as input.
+2.  Uses the av Python library to extract video frames and their timestamps.
+3. Utilizes a pre-trained YOLOv5 model to detect Pepsi and CocaCola logos in the video.
+4. Outputs a JSON file with timestamps for each detected logo.
+
+## Output Format
+The output JSON file will have the following format:
+```
+{
+    "Pepsi_pts": [10.1, 10.2, 10.3, ...],
+    "CocaCola_pts": [20.3, 31.8, 40.12, ...]
+}
+```
+
+## Requirements
+1. Python 3.x
+2. Google Colab or a local machine with GPU support (optional but recommended for faster execution)
+
+
+## Dependencies
+The following Python packages are required:
+
+- ```av``` For video frame extraction
+  
+- ```torch``` and ```torchvision``` For the YOLOv5 model
+  
+- ```opencv-python``` For additional image processing
+
+- ```yolov5``` For the pre-trained YOLOv5 model
+
+
+
 ## Methods Considered and Why They Were Not Used
 
 ### 1. Data Collection
@@ -59,5 +93,3 @@ Description: We used a pre-trained YOLOv5 model for detecting Pepsi and Coca-Col
 - State-of-the-Art Model: YOLOv5 is a state-of-the-art object detection model known for its high accuracy and speed. Using a pre-trained version of this model ensures that we benefit from its robust performance.
 - Generalization: The pre-trained model has been trained on diverse datasets, which helps in achieving good detection accuracy even for logos in various contexts and backgrounds.
 - Simplified Development: By using a pre-trained model, we can focus our efforts on other critical aspects of the project, such as frame extraction, timestamping, and integration of the different components into a seamless pipeline.
-
-
