@@ -3,9 +3,9 @@
 ## Objective
 This project sets up an ML pipeline that:
 1. Takes a video file as input.
-2.  Uses the av Python library to extract video frames and their timestamps.
-3. Utilizes a pre-trained YOLOv5 model to detect Pepsi and CocaCola logos in the video.
-4. Outputs a JSON file with timestamps for each detected logo.
+2.  Uses the ```av``` Python library to extract video frames and their timestamps.
+3. Utilizes a pre-trained ```YOLOv5``` model to detect Pepsi and CocaCola logos in the video.
+4. Outputs a ```JSON``` file with timestamps for each detected logo.
 
 ## Output Format
 The output JSON file will have the following format:
