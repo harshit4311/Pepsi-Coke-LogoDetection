@@ -32,6 +32,41 @@ The following Python packages are required:
 
 - ```yolov8``` for the pre-trained YOLOv8 model
 
+# Setup and Usage
+## Setup
+- ####  Clone the repository:
+  ```
+  git clone https://github.com/your-username/Pepsi-Coke-LogoDetection.git
+  cd Pepsi-Coke-LogoDetection
+  ```
+
+- #### Create and activate a virtual environment (optional):
+```
+pip install virtualenv
+virtualenv venv
+
+# On Windows
+venv\Scripts\activate
+
+# On macOS/Linux
+source venv/bin/activate
+```
+
+- #### Install dependencies:
+```
+pip install av torch torchvision opencv-python yolov8
+```
+
+## Usage
+- #### Run the pipeline on a video file:
+```
+python detect_logos.py --video path/to/your/video.mp4
+```
+
+- #### View the results in ```output.json```
+
+
+# Approach Document
 
 ## Version-1: ```Pre-trained``` YOLOv8 Model for Inference
 
