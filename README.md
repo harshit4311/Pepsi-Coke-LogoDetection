@@ -2,9 +2,9 @@
 
 ## Objective
 This project sets up an ML pipeline that:
-1. Takes a video file as input.
+1. Takes a ```video``` file as input.
 2.  Uses the ```av``` Python library to extract video frames and their timestamps.
-3. Utilizes a pre-trained ```YOLOv8``` model to detect Pepsi and CocaCola logos in the video.
+3. Utilizes a pre-trained/custom-trained ```YOLOv8``` model to detect Pepsi and CocaCola logos in the video.
 4. Outputs a ```JSON``` file with timestamps for each detected logo.
 
 ## Output Format
@@ -33,62 +33,45 @@ The following Python packages are required:
 - ```yolov8``` for the pre-trained YOLOv8 model
 
 
+## Version-1: ```Pre-trained``` YOLOv8 Model for Inference
 
-## Methods Considered and Why They Were Not Used
-
-### 1. Data Collection
-
-Description: Gathering a comprehensive dataset of images containing Pepsi and Coca-Cola logos.
-
-Reason for Not Using: 
-- Time-Consuming: Collecting a large dataset of labeled images is resource-intensive and time-consuming
-- Resource-Intensive: Requires significant effort to find and label a sufficient number of relevant images, which can be avoided by using pre-trained models.
-- Pre-Trained Models: Leveraging existing pre-trained models allows us to skip this step and directly use a robust solution.
-
-Focus on Pipeline: The assignment's objective is to demonstrate the pipeline setup and functionality, not data collection.
-
-### 2. Data Cleaning
-Description: Processing raw data to ensure it is clean and suitable for training or inference.
-
-Reason for Not Using:
-- Pre-Processed Data: The frames extracted from the video are assumed to be of good quality, reducing the need for extensive cleaning.
-- Pre-Trained Model Usage: Using a pre-trained model mitigates the need for comprehensive data cleaning typically required before training.
-- Time Constraints: Given the short duration of the assignment, the focus is on setting up and demonstrating the pipeline rather than preparing the data.
-  
-Primary Objective: The main task is logo detection and timestamp generation, which does not require extensive data cleaning.
-
-### 3. Training
-Description: Training a custom YOLOv8 model on a labeled dataset specific to Pepsi and Coca-Cola logos.
-Reason for Not Using:
-Computationally Expensive: Training deep learning models requires significant computational power, which might not be readily available.
-Pre-Trained Models Available: YOLOv8 pre-trained models are readily available and can be fine-tuned or used directly for our task.
-
-Focus on Inference: The task requires demonstrating logo detection, which can be effectively achieved using pre-trained models.
-
-### 4. Inference
-Description: Using a trained model to make predictions on new data.
-Reason for Using:
-- Core Task: The assignment specifically requires detecting logos in a video and generating timestamps, which is an inference task.
-- Efficiency: Using a pre-trained model for inference is efficient and effective, meeting the assignment's requirements within the given timeframe.
-- Direct Application: Allows us to focus on the practical application of the model for the specific task without the overhead of training.
-Demonstrable Results: Ensures we can provide a functional demo and the required JSON output, fulfilling the evaluation criteria.
-
-By focusing on inference using a pre-trained YOLOv8 model, we efficiently address the assignment's core requirements and deliver a functional solution within the specified timeframe. This approach leverages existing robust models, ensuring high accuracy and performance without the need for extensive data collection, cleaning, or training.
-
-
-# Conclusion
-## Method Used: Pre-trained YOLOv8 Model for Inference
-Description: We used a pre-trained YOLOv8 model for detecting Pepsi and Coca-Cola logos in a video. This method involves leveraging an already trained YOLOv5 model to perform object detection directly on video frames extracted from the input video.
-
+### Methods involved:
+We used a pre-trained YOLOv8 model for detecting Pepsi and Coca-Cola logos in a video. This method involves leveraging an already trained YOLOv8 model to perform object detection directly on video frames extracted from the input video.
 
 ### Advantages:
 
-- Time Efficiency
-- Resource Efficiency
-- Reduced Computational Requirements
-- No Need for Large Datasets
-- High Accuracy and Performance
-- Focus on Pipeline and Integration
-- State-of-the-Art Model: YOLOv8 is a state-of-the-art object detection model known for its high accuracy and speed. Using a pre-trained version of this model ensures that we benefit from its robust performance.
-- Generalization: The pre-trained model has been trained on diverse datasets, which helps in achieving good detection accuracy even for logos in various contexts and backgrounds.
-- Simplified Development: By using a pre-trained model, we can focus our efforts on other critical aspects of the project, such as frame extraction, timestamping, and integration of the different components into a seamless pipeline.
+- #### Time Efficiency
+- #### Resource Efficiency
+- #### Reduced Computational Requirements
+- #### No Need for Large Datasets
+- #### Generalization:
+The pre-trained model has been trained on diverse datasets, which helps in achieving good detection accuracy even for logos in various contexts and backgrounds.
+- #### Simplified Development:
+By using a pre-trained model, we can focus our efforts on other critical aspects of the project, such as frame extraction, timestamping, and integration of the different components into a seamless pipeline.
+
+
+## Version-2 (Built on top of Version-1):  ```Custom-trained``` YOLOv8 Model for Inference
+
+### Methods involved:
+- #### Data Collection and Preparation:
+Gather a dataset of images containing Pepsi and Coca-Cola logos. This dataset should be labeled with bounding boxes around each logo.
+- #### Model Training:
+Use the YOLOv8 architecture to train a model on your labeled dataset. This involves several iterations of training and validation to optimize the model's ability to detect logos accurately in various video frames.
+- #### Inference:
+Once trained, the custom model can be used for inference. This involves deploying the model to process each frame of the video, detect the logos, and generate timestamps as per your project requirements.
+
+### Advantages:
+- #### Improved Accuracy:
+A custom trained model can be fine-tuned on specific data relevant to your application, leading to higher accuracy compared to generic, pre-trained models that might not be optimized for your exact use case.
+- #### Tailored to Specific Requirements:
+You have control over the training data, allowing you to focus on characteristics and variations that are important for your application. This customization helps in better handling of variations in lighting, angles, backgrounds, etc., which are crucial for logo detection in videos.
+- #### Better Generalization:
+By training on data that closely matches real-world scenarios, the model can generalize better to unseen data. This means it can perform well on new videos or environments that were not explicitly part of the training set.
+- #### Flexibility and Adaptability:
+Custom models can be iteratively improved and adjusted based on performance feedback. You can continuously refine the model to achieve better results as you gather more data and insights into its performance.
+- #### Privacy and Security:
+Training a custom model can be done using proprietary or sensitive data internally, ensuring data privacy and compliance with regulations. This can be crucial for applications where data confidentiality is paramount.
+- #### Domain-Specific Knowledge:
+Training your own model allows you to incorporate domain-specific knowledge and insights into the model architecture and training process, leading to more effective solutions for your specific problem.
+- #### Educational and Research Benefits:
+Building and training a custom model provides valuable learning experiences and insights into machine learning and deep learning techniques. It can also serve as a basis for further research and development in related areas.
